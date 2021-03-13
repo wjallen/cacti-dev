@@ -1,0 +1,115 @@
+{
+  "checkpointable": false,
+  "name": "dlscore_app",
+  "executionSystem": "tacc.stampede2.wallen",
+  "executionType": "HPC",
+  "deploymentPath": "apps/wallen-dlscore-1.0",
+  "deploymentSystem": "tacc.work.wallen",
+  "helpURI": "https://github.com/sirimullalab/DLSCORE",
+  "label": "dlscore_app",
+  "shortDescription": "DLSCORE: A deep learning based scoring function for predicting protein-ligand binding affinity.",
+  "longDescription": "DLSCORE: A deep learning based scoring function for predicting protein-ligand binding affinity.",
+  "modules": [
+    "load tacc-singularity"
+  ],
+  "ontology": [],
+  "parallelism": "SERIAL",
+  "tags": [],
+  "templatePath": "runner.sh",
+  "testPath": "tester.sh",
+  "version": "1.0",
+  "defaultMaxRunTime": "00:30:00",
+  "inputs":[
+    {
+      "id": "ligand",
+      "value": {
+        "default": "10gs_ligand.pdbqt",
+        "visible": true,
+        "required": true
+      },
+      "semantics": {},
+      "details": {
+        "label": "Ligand file. Supported file types: .pdb, .pdbqt, .mol2"
+      }
+    },
+    {
+      "id": "protein",
+      "value": {
+        "default": "10gs_protein.pdbqt",
+        "visible": true,
+        "required": true
+      },
+      "semantics": {},
+      "details": {
+        "label": "Receptor file. Supported file types: .pdb, .pdbqt, .mol2"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "id": "vina_executable",
+      "value": {
+        "default": "/DLSCORE/autodock_vina_1_1_2_linux_x86/bin/vina",
+        "type": "string",
+        "visible": false,
+        "required": true,
+        "order": 1000
+      }
+    },
+    {
+      "id": "num_networks",
+      "description": "Number of networks to use for prediction",
+      "value": {
+        "default": "10",
+        "type": "string",
+        "visible": true,
+        "required": false,
+        "order": 1000
+      }
+    },
+    {
+      "id": "network_type",
+      "description": "Possible options are: general and refined",
+      "value": {
+        "default": "refined",
+        "type": "string",
+        "visible": true,
+        "required": false,
+        "order": 1000
+      }
+    },
+    {
+      "id": "verbose",
+      "description": "Verbose mode. False if 0, True if 1. Default is set to False",
+      "value": {
+        "default": "0",
+        "type": "string",
+        "visible": true,
+        "required": false,
+        "order": 1000
+      }
+    },
+    {
+      "id": "output",
+      "description": "Name of the output file. Dafault: out.csv",
+      "value": {
+        "default": "out.csv",
+        "type": "string",
+        "visible": true,
+        "required": true,
+        "order": 1000
+      }
+    },
+    {
+      "id": "CONTAINER_IMAGE",
+      "value": {
+        "default": "wallen/dlscore:1.0",
+        "type": "string",
+        "visible": false,
+        "required": true,
+        "order": 1000
+      }
+    }
+  ],
+  "outputs": []
+}
