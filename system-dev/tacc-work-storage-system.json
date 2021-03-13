@@ -1,0 +1,21 @@
+{
+  "id": "tacc.work.wallen",
+  "name": "Storage system for the TACC WORK directory",
+  "description": "Storage system for the TACC WORK directory via Stampede2",
+  "type": "STORAGE",
+  "storage": {
+    "host": "stampede2.tacc.utexas.edu",
+    "port": 22,
+    "protocol": "SFTP",
+    "rootDir": "/work/03439/wallen/tapis",
+    "homeDir": "/",
+    "auth":{
+      "auth": {
+        "username": "wallen",
+        "publicKey": "<redacted>",
+        "privateKey": "<redacted>",
+        "type": "SSHKEYS"
+      }
+    }
+  }
+}
