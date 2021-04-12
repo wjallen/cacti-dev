@@ -10,12 +10,10 @@
     "rootDir": "/work/03439/wallen/tapis",
     "homeDir": "/",
     "auth":{
-      "auth": {
         "username": "wallen",
         "publicKey": "<redacted>",
         "privateKey": "<redacted>",
         "type": "SSHKEYS"
-      }
     }
   }
 }
