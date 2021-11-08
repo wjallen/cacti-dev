@@ -1,0 +1,78 @@
+{
+  "checkpointable": false,
+  "name": "wallen-{{ app.name }}",
+  "executionSystem": "tacc.maverick2.wallen",
+  "executionType": "HPC",
+  "deploymentPath": "apps/wallen-{{ app.name }}-{{ app.version }}",
+  "deploymentSystem": "tacc.work.wallen",
+  "helpURI": "https://github.com/deepmind/alphafold",
+  "label": "{{ app.label }}",
+  "shortDescription": "{{ app.description }}",
+  "longDescription": "AlphaFold is a protein structure prediction tool developed by DeepMind (Google). It uses a novel machine learning approach to predict 3D protein structures from primary sequences alone. In July 2021, the developers made the source code available on Github and published a Nature paper describing the method. In addition to the software, AlphaFold depends on ~2.5 TB of databases and model parameters.",
+  "modules": [
+    "load tacc-singularity",
+    "use /work/projects/tacc/bio/alphafold/modulefiles",
+    "load alphafold/2.1.0-ctr"
+  ],
+  "ontology": [],
+  "parallelism": "SERIAL",
+  "tags": [],
+  "templatePath": "runner.sh",
+  "testPath": "tester.sh",
+  "version": "{{ app.version }}",
+  "defaultMaxRunTime": "14:00:00",
+  "inputs": [
+  ],
+  "parameters": [
+    {
+      "id": "sequence",
+      "value": {
+        "default": "AAA",
+        "type": "string",
+        "visible": true,
+        "required": true
+      },
+      "details": {
+        "label": "input sequence",
+        "description": "the raw primary sequence of the protein to be folded"
+      }
+    },
+    {
+      "id": "precision",
+      "value": {
+        "default": "reduced",
+        "type": "string",
+        "visible": true,
+        "required": true
+      },
+      "details": {
+        "label": "precision",
+        "description": "can either be 'full' or 'reduced'"
+      }
+    },
+    {
+      "id": "model",
+      "value": {
+        "default": "monomer",
+        "type": "string",
+        "visible": true,
+        "required": true
+      },
+      "details": {
+        "label": "model preset",
+        "description": "can either be 'monomer', 'monomer_casp14', 'monomer_ptm', or 'multimer'"
+      }
+    },
+    {
+      "id": "CONTAINER_IMAGE",
+      "value": {
+        "default": "{{ docker.namespace }}/{{ docker.repo }}:{{ docker.tag }}",
+        "type": "string",
+        "visible": false,
+        "required": true,
+        "order": 1000
+      }
+    }
+  ],
+  "outputs": []
+}

@@ -1,0 +1,63 @@
+{
+  "id": "tacc.maverick2.wallen",
+  "name": "Execution system for TACC Maverick2",
+  "description": "Execution system for TACC Maverick2",
+  "type": "EXECUTION",
+  "executionType": "HPC",
+  "scheduler": "SLURM",
+  "maxSystemJobsPerUser": 50,
+  "scratchDir": "/work/03439/wallen/maverick2",
+  "login": {
+    "host": "maverick2.tacc.utexas.edu",
+    "port": 22,
+    "protocol": "SSH",
+    "auth": {
+      "username": "wallen",
+      "publicKey": "<redacted>",
+      "privateKey": "<redacted>",
+      "type": "SSHKEYS"
+    }
+  },
+  "storage": {
+    "host": "maverick2.tacc.utexas.edu",
+    "port": 22,
+    "protocol": "SFTP",
+    "rootDir": "/",
+    "homeDir": "/work/03439/wallen/tapis",
+    "auth": {
+      "username": "wallen",
+      "publicKey": "<redacted>",
+      "privateKey": "<redacted>",
+      "type": "SSHKEYS"
+    }
+  },
+  "queues": [
+    {
+      "name": "gtx",
+      "maxProcessorsPerNode": 4,
+      "maxMemoryPerNode": "128GB",
+      "maxNodes": 4,
+      "maxRequestedTime": "24:00:00",
+      "customDirectives": "-A CACTI",
+      "default": false
+    },
+    {
+      "name": "v100",
+      "maxProcessorsPerNode": 2,
+      "maxMemoryPerNode": "192GB",
+      "maxNodes": 4,
+      "maxRequestedTime": "24:00:00",
+      "customDirectives": "-A CACTI",
+      "default": false
+    },
+    {
+      "name": "p100",
+      "maxProcessorsPerNode": 2,
+      "maxMemoryPerNode": "192GB",
+      "maxNodes": 4,
+      "maxRequestedTime": "24:00:00",
+      "customDirectives": "-A CACTI",
+      "default": false
+    }
+  ]
+}
