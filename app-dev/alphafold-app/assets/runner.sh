@@ -9,10 +9,10 @@ fi
 
 touch sample.fasta
 echo "> seq from portal" > sample.fasta
-echo ${sequence} > sample.fasta
+echo ${sequence} >> sample.fasta
 
 
-COMMAND="run_alphafold.sh"
+COMMAND="/app/run_alphafold.sh"
 OPTS="--flagfile=$AF2_HOME/test/flags/${PRECISION}_dbs.ff  --fasta_paths=./sample.fasta  --output_dir=./af2_${PRECISION}  --model_preset=${MODEL}"
 
 
