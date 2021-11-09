@@ -2,7 +2,7 @@
 if [ -z "${CONTAINER_IMAGE}" ]
 then
     version=$(cat ./_util/VERSION)
-    CONTAINER_IMAGE="index.docker.io/wallen/dlscore:1.0"
+    CONTAINER_IMAGE="index.docker.io/sirimullalab/dlscore:latest"
 fi
 . lib/container_exec.sh
 
@@ -16,8 +16,8 @@ fi
 #
 # container_exec ${CONTAINER_IMAGE} COMMAND OPTS INPUTS
 
-COMMAND=" python3 /DLSCORE/dlscore.py "
-PARAMS=" --ligand ${ligand} --receptor ${protein} --vina_executable /DLSCORE/autodock_vina_1_1_2_linux_x86/bin/vina "
+COMMAND=" python3 /app/dlscore.py "
+PARAMS=" --ligand ${ligand} --receptor ${protein} --vina_executable /app/autodock_vina_1_1_2_linux_x86/bin/vina "
 
 
 if [ -z "${num_networks}" ];

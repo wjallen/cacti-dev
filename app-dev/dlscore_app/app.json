@@ -23,7 +23,7 @@
     {
       "id": "ligand",
       "value": {
-        "default": "10gs_ligand.pdbqt",
+        "default": "<choose ligand file>",
         "visible": true,
         "required": true
       },
@@ -35,7 +35,7 @@
     {
       "id": "protein",
       "value": {
-        "default": "10gs_protein.pdbqt",
+        "default": "<choose receptor file>",
         "visible": true,
         "required": true
       },
@@ -103,7 +103,7 @@
     {
       "id": "CONTAINER_IMAGE",
       "value": {
-        "default": "wallen/dlscore:1.0",
+        "default": "sirimullalab/dlscore:latest",
         "type": "string",
         "visible": false,
         "required": true,
