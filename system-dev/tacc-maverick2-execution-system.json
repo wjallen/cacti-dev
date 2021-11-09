@@ -5,7 +5,7 @@
   "type": "EXECUTION",
   "executionType": "HPC",
   "scheduler": "SLURM",
-  "maxSystemJobsPerUser": 50,
+  "maxSystemJobsPerUser": 4,
   "scratchDir": "/work/03439/wallen/maverick2",
   "login": {
     "host": "maverick2.tacc.utexas.edu",
@@ -37,15 +37,17 @@
       "maxProcessorsPerNode": 4,
       "maxMemoryPerNode": "128GB",
       "maxNodes": 4,
+      "maxUserJobs": 4,
       "maxRequestedTime": "24:00:00",
       "customDirectives": "-A CACTI",
-      "default": false
+      "default": true
     },
     {
       "name": "v100",
       "maxProcessorsPerNode": 2,
       "maxMemoryPerNode": "192GB",
       "maxNodes": 4,
+      "maxUserJobs": 4,
       "maxRequestedTime": "24:00:00",
       "customDirectives": "-A CACTI",
       "default": false
@@ -55,6 +57,7 @@
       "maxProcessorsPerNode": 2,
       "maxMemoryPerNode": "192GB",
       "maxNodes": 4,
+      "maxUserJobs": 4,
       "maxRequestedTime": "24:00:00",
       "customDirectives": "-A CACTI",
       "default": false
