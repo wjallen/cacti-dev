@@ -2,6 +2,7 @@
   "id": "tacc.maverick2.wallen",
   "name": "Execution system for TACC Maverick2",
   "description": "Execution system for TACC Maverick2",
+  "site": "tacc.utexas.edu",
   "type": "EXECUTION",
   "executionType": "HPC",
   "scheduler": "SLURM",
